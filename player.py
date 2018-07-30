@@ -19,14 +19,14 @@ class Player(pygame.sprite.Sprite):
 		self.get_gravity()
 		self.rect.x += self.change_x
 
-		block_hit_list = pygame.sprite.spritecollide(self,self.level.platform_list)
+		block_hit_list = pygame.sprite.spritecollide(self,self.level.plats,False)
 		for block in block_hit_list:
 			if self.change_x > 0:
 				self.rect.right = block.rect.left
 			elif self.change_x < 0:
 				self.rect.left = block.rect.right
 		self.rect.y += self.change_y
-		block_hit_list = pygame.sprite.spritecollide(self,self.level.platform_list)
+		block_hit_list = pygame.sprite.spritecollide(self,self.level.plats,False)
 		for block in block_hit_list:
 			if self.change_y > 0:
 				self.rect.bottom = block.rect.top
@@ -45,7 +45,7 @@ class Player(pygame.sprite.Sprite):
 
 	def jump(self):
 		self.rect.y += 2
-		platform_hit_list = pygame.sprite.spritecollide(self,self.level.platform_l)
+		platform_hit_list = pygame.sprite.spritecollide(self,self.level.plats,False)
 		self.rect.y -= 2
 		if len(platform_hit_list) > 0 or self.rect.bottom >= HEIGHT:
 			self.change_y = -10

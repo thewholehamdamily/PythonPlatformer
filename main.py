@@ -1,5 +1,6 @@
 import pygame
 import player
+import level
 
 HEIGHT = 600
 WIDTH = 800
@@ -14,7 +15,7 @@ def main():
 	plr = player.Player()
 	
 	levels = []
-	levels.append(Level1(player))
+	levels.append(level.Level1(player))
 	
 	currentLN = 0
 	currentL = levels[currentLN]
@@ -23,7 +24,7 @@ def main():
 	plr.level = currentL
 	
 	plr.rect.x = 340
-	plr.rect.y = HEIGHT - player.rect.height
+	plr.rect.y = HEIGHT - plr.rect.height
 	active_sprites.add(plr)
 	
 	close = False
@@ -36,30 +37,30 @@ def main():
 				close = True
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_LEFT:
-					plr.go_left()
+					plr.left()
 				if event.key == pygame.K_RIGHT:
-					plr.go_right()
-				if event.key ==pygame.K_UP:
-					player.jump()
+					plr.right()
+				if event.key == pygame.K_UP:
+					plr.jump()
 			if event.type == pygame.KEYUP:
-				if event.key == pygame.K_LEFT:
-					player.stop()
-				if event.key == pygame.K_RIGHT
-					player.stop()
+				if event.key == pygame.K_LEFT and plr.change_x < 0:
+					plr.stop()
+				if event.key == pygame.K_RIGHT and plr.change_x > 0:
+					plr.stop()
 
 		active_sprites.update()
 		currentL.update()
 		if plr.rect.right >= 500:
-			diff = player.rect.right - 500
+			diff = plr.rect.right - 500
 			plr.rect.right = 500
-			currentL.shift_world(-diff)
-		if player.rect.left <= 120:
+			currentL.ShiftCamera(-diff)
+		if plr.rect.left <= 120:
 			diff = 120 - plr.rect.left
-			player.rect.left = 120
-			currentL.shift_world(diff)
+			plr.rect.left = 120
+			currentL.ShiftCamera(diff)
 		
-		current_pos = plr.rect.x + currentL.world_shift
-		if current_pos < currentL.level_limit:
+		current_pos = plr.rect.x + currentL.cam_shift
+		if current_pos < currentL.limit:
 			plr.rect.x = 120
 			if currentLN < len(levels) - 1:
 				currentLN += 1
