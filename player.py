@@ -34,6 +34,8 @@ class Player(pygame.sprite.Sprite):
 			elif self.change_y < 0:
 				self.rect.top = block.rect.bottom
 			self.change_y = 0
+		if self.rect.x <= 0:
+			self.rect.x = 0
 
 	def get_gravity(self):
 		if self.change_y == 0:

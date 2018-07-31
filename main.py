@@ -33,6 +33,8 @@ close = False
 	
 clock = pygame.time.Clock()
 
+camPos = 0
+
 def ShiftCamera(shift):
 		for a in active_sprites:
 			if a != plr:
@@ -70,16 +72,18 @@ while not close:
 
 	active_sprites.update()
 	currentL.update()
-	if plr.rect.right >= 500:
-		diff = plr.rect.right - 500
-		plr.rect.right = 500
+	if plr.rect.right >= 416:
+		diff = plr.rect.right - 416
+		plr.rect.right = 416
 		ShiftCamera(-diff)
 		currentL.ShiftCamera(-diff)
-	if plr.rect.left <= 120:
-		diff = 120 - plr.rect.left
-		plr.rect.left = 120
+		camPos += diff
+	if plr.rect.left <= 384 and camPos > 0:
+		diff = 384 - plr.rect.left
+		plr.rect.left = 384
 		ShiftCamera(diff)
 		currentL.ShiftCamera(diff)
+		camPos -= diff
 	
 	current_pos = plr.rect.x + currentL.cam_shift
 	if current_pos < currentL.limit:
