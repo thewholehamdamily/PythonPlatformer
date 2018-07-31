@@ -12,7 +12,7 @@ class Metool(EnemyParent):
 		fireRate = 300
 		self.id = 1
 		self.direct = -1
-	
+		
 	def update(self):
 		self.alarm += 1
 	
