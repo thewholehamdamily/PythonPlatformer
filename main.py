@@ -22,6 +22,7 @@ currentL = levels[currentLN]
 	
 active_sprites = pygame.sprite.Group()
 bullets = pygame.sprite.Group()
+enemies = pygame.sprite.Group()
 plr.level = currentL
 	
 plr.rect.x = 340
@@ -33,6 +34,7 @@ close = False
 clock = pygame.time.Clock()
 	
 while not close:
+	#Movement
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			close = True
@@ -52,6 +54,15 @@ while not close:
 				plr.stop()
 			if event.key == pygame.K_RIGHT and plr.change_x > 0:
 				plr.stop()
+
+	#Bullets colliding w/ enemies
+	for b in bullets:
+		for e in enemies:
+			if b.rect.colliderect(e.rect):
+				e.hurt();
+				b.kill();
+
+
 	active_sprites.update()
 	currentL.update()
 	if plr.rect.right >= 500:
