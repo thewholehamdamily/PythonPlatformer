@@ -9,8 +9,8 @@ class Metool(EnemyParent):
 		power = 4
 		self.vulnerable = 0
 		self.alarm = 0
-		fireRate = 300
-		self.id = 1
+		fireRate = 180
+		id = 1
 		self.direct = -1
 		
 	def update(self):

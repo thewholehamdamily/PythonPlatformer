@@ -13,7 +13,10 @@ class EnemyParent(pygame.sprite.Sprite):
 		self.rect.x = x
 		self.rect.y = y
 		self.vulnerable = 1
+		self.id = 0
 	def hurt(self):
 		self.hp -= 1
 		if self.hp <= 0:
 			self.kill()
+	def attack(self):
+		pass

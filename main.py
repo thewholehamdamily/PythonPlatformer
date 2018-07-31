@@ -87,6 +87,21 @@ while not close:
 				b = bullet.Bullet(225,e.rect.x,e.rect.y+16)
 				active_sprites.add(b)
 				bullets.add(b)
+			#Chaser spawning
+			if e.id == 3:
+				c = chaser.Chaser(e.rect.x,e.rect.y)
+				active_sprites.add(c)
+				enemies.add(c)
+			#Chaser chasing
+			if e.id == 4:
+				if e.rect.x > plr.rect.x:
+					e.rect.x -= 2
+				if e.rect.x < plr.rect.x:
+					e.rect.x += 2
+				if e.rect.y > plr.rect.y:
+					e.rect.y -= 2
+				if e.rect.y < plr.rect.y:
+					e.rect.y += 2
 			e.alarm = 0
 
 

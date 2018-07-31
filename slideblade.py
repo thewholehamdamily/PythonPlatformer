@@ -1,4 +1,5 @@
 import pygame
+import enemyparent
 
 #Slides back and forth
 class SlideBlade(EnemyParent):
@@ -9,7 +10,7 @@ class SlideBlade(EnemyParent):
 		power = 4
 		self.vulnerable = 1
 		self.alarm = 0
-		fireRate = 240
+		fireRate = 120
 		self.id = 2
 		self.direct = d		#Which direction does it start going?
 		self.change_x = 0
