@@ -5,8 +5,8 @@ class EnemyParent(pygame.sprite.Sprite):
 		super().__init__()
 		width = 32
 		height = 32
-		hp = 1
-		power = 4
+		self.hp = 1
+		self.power = 4
 		self.image = pygame.Surface([width,height])
 		self.image.fill((0,255,0))
 		self.rect = self.image.get_rect()

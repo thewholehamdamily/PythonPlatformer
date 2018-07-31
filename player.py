@@ -6,8 +6,8 @@ RED = (255,0,0)
 class Player(pygame.sprite.Sprite):
 	def __init__(self):
 		super().__init__()
-		width = 40
-		height = 60
+		width = 32
+		height = 64
 		self.image = pygame.Surface([width,height])
 		self.image.fill(RED)
 		self.rect = self.image.get_rect()
@@ -52,10 +52,10 @@ class Player(pygame.sprite.Sprite):
 			self.change_y = -10
 
 	def left(self):
-		self.change_x = -6
+		self.change_x = -4
 		self.direct = -1
 	def right(self):
-		self.change_x = 6
+		self.change_x = 4
 		self.direct = 1
 	def stop(self):
 		self.change_x = 0

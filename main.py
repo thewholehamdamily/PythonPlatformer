@@ -32,6 +32,11 @@ active_sprites.add(plr)
 close = False
 	
 clock = pygame.time.Clock()
+
+def ShiftCamera(shift):
+		for a in active_sprites:
+			if a != plr:
+				a.rect.x += shift
 	
 while not close:
 	#Movement
@@ -68,10 +73,12 @@ while not close:
 	if plr.rect.right >= 500:
 		diff = plr.rect.right - 500
 		plr.rect.right = 500
+		ShiftCamera(-diff)
 		currentL.ShiftCamera(-diff)
 	if plr.rect.left <= 120:
 		diff = 120 - plr.rect.left
 		plr.rect.left = 120
+		ShiftCamera(diff)
 		currentL.ShiftCamera(diff)
 	
 	current_pos = plr.rect.x + currentL.cam_shift

@@ -11,7 +11,7 @@ class Bullet(pygame.sprite.Sprite):
 		self.image.fill(BULLET_COLOR)
 		self.rect = self.image.get_rect()
 		self.direct = d
-		self.change_x = 6*d
+		self.change_x = 8*d
 		self.rect.x = x
 		self.rect.y = y
 
