@@ -29,7 +29,7 @@ class Player(pygame.sprite.Sprite):
 				self.rect.right = block.rect.left
 			elif self.change_x < 0:
 				self.rect.left = block.rect.right
-		self.rect.y += self.change_y
+		self.rect.y += min(self.change_y,10)
 		block_hit_list = pygame.sprite.spritecollide(self,self.level.plats,False)
 		for block in block_hit_list:
 			if self.change_y > 0:
@@ -52,8 +52,8 @@ class Player(pygame.sprite.Sprite):
 			self.rect.y = HEIGHT - self.rect.height
 		elif self.jumped:
 			key = pygame.key.get_pressed() 
-			if key[pygame.K_UP] == False:
-				self.change_y += .15
+			if key[pygame.K_UP] == False and key[pygame.K_x] == False:
+				self.change_y += .65
 
 	def jump(self):
 		self.jumped = True

@@ -24,6 +24,7 @@ currentL = levels[currentLN]
 active_sprites = pygame.sprite.Group()
 bullets = pygame.sprite.Group()
 enemies = pygame.sprite.Group()
+enemyBullets = pygame.sprite.Group()
 plr.level = currentL
 	
 plr.rect.x = 340
@@ -70,6 +71,23 @@ while not close:
 			if b.rect.colliderect(e.rect):
 				e.hurt();
 				b.kill();
+
+	#Enemies attacking
+	for e in enemies:
+		if e.alarm > e.fireRate:
+			e.attack()
+			#Metool bullets
+			if e.id == 1 and e.vulnerable == 0:
+				b = bullet.Bullet(315,e.rect.x,e.rect.y+16)
+				active_sprites.add(b)
+				bullets.add(b)
+				b = bullet.Bullet(270,e.rect.x,e.rect.y+16)
+				active_sprites.add(b)
+				bullets.add(b)
+				b = bullet.Bullet(225,e.rect.x,e.rect.y+16)
+				active_sprites.add(b)
+				bullets.add(b)
+			e.alarm = 0
 
 
 	active_sprites.update()

@@ -12,6 +12,7 @@ class EnemyParent(pygame.sprite.Sprite):
 		self.rect = self.image.get_rect()
 		self.rect.x = x
 		self.rect.y = y
+		self.vulnerable = 1
 	def hurt(self):
 		self.hp -= 1
 		if self.hp <= 0:
