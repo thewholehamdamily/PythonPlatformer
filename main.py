@@ -2,6 +2,7 @@ import pygame
 import player
 import bullet
 import level
+import hud
 
 HEIGHT = 600
 WIDTH = 800
@@ -34,6 +35,7 @@ close = False
 clock = pygame.time.Clock()
 
 camPos = 0
+HUD = hud.HUD("monospace",15,plr,screen)
 
 def ShiftCamera(shift):
 		for a in active_sprites:
@@ -95,7 +97,7 @@ while not close:
 			
 	currentL.draw(screen)
 	active_sprites.draw(screen)
-		
+	HUD.update()
 	clock.tick(60)
 		
 	pygame.display.flip()

@@ -8,6 +8,7 @@ class Player(pygame.sprite.Sprite):
 		super().__init__()
 		width = 32
 		height = 64
+		self.health = 3
 		self.image = pygame.Surface([width,height])
 		self.image.fill(RED)
 		self.rect = self.image.get_rect()
