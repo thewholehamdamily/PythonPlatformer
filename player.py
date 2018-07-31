@@ -4,7 +4,6 @@ WIDTH = 800
 RED = (255,0,0)
 
 class Player(pygame.sprite.Sprite):
-
 	def __init__(self):
 		super().__init__()
 		width = 32
@@ -29,7 +28,7 @@ class Player(pygame.sprite.Sprite):
 				self.rect.right = block.rect.left
 			elif self.change_x < 0:
 				self.rect.left = block.rect.right
-		self.rect.y += min(self.change_y,10)
+		self.rect.y += self.change_y
 		block_hit_list = pygame.sprite.spritecollide(self,self.level.plats,False)
 		for block in block_hit_list:
 			if self.change_y > 0:
@@ -37,6 +36,8 @@ class Player(pygame.sprite.Sprite):
 			elif self.change_y < 0:
 				self.rect.top = block.rect.bottom
 			self.change_y = 0
+			'''if isinstance(block, MovingPlatform):
+				self.rect.x += block.move_x'''
 		if self.rect.x <= 0:
 			self.rect.x = 0
 
@@ -45,7 +46,6 @@ class Player(pygame.sprite.Sprite):
 			self.change_y = 1
 		else:
 			self.change_y += .35
-		event = pygame.event.peek()
 		if self.rect.y >= HEIGHT - self.rect.height and self.change_y >= 0:
 			self.jumped = False
 			self.change_y = 0
@@ -55,10 +55,10 @@ class Player(pygame.sprite.Sprite):
 			if key[pygame.K_UP] == False and key[pygame.K_x] == False:
 				if self.change_y == self.fall_speed_cap:
 					self.change_y += 0
-				elif (self.change_y + .85) > self.fall_speed_cap:
+				elif (self.change_y + .65) > self.fall_speed_cap:
 					self.change_y += (self.fall_speed_cap - self.change_y)
 				else:
-					self.change_y += .85
+					self.change_y += .65
 
 	def jump(self):
 		self.jumped = True

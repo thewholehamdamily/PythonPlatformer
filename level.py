@@ -15,17 +15,17 @@ class Platform(pygame.sprite.Sprite):
 		self.rect = self.image.get_rect()
 
 '''class MovingPlat(Platform):
-	def __init__(self,width,height,p):
-		super().__init__(width,height,MPLATFORM_COLOR)
-		self.move_x = 0
-		self.move_y = 0
-		self.top_bound = 0
-		self.bottom_bound = 0
-		self.left_bound = 0
-		self.right_bound = 0
+	move_x = 0
+	move_y = 0
+	top_bound = 0
+	bottom_bound = 0
+	left_bound = 0
+	right_bound = 0
+	plr = None
+	level = None
+	def __init__(self,p,w,h,c):
+		super().__init__(w,h,c)
 		self.plr = p
-		self.level = None
-	
 	def update(self):
 		self.rect.x += self.move_x
 		hit = pygame.sprite.collide_rect(self,self.plr)
@@ -45,8 +45,8 @@ class Platform(pygame.sprite.Sprite):
 			self.move_y *= -1
 		current = self.rect.x - self.level.cam_shift
 		if self.rect.bottom > self.left_bound or cur_pos > self.right_bound:
-			self.move_x *= -1'''
-			
+			self.move_x *= -1
+'''			
 class Level():
 	def __init__(self,player):
 		self.plats = pygame.sprite.Group()
@@ -76,7 +76,7 @@ class Level1(Level):
 			plat.rect.y = platform[3]
 			plat.player = self.player
 			self.plats.add(plat)
-		'''mplat = MovingPlat(70,40,self.player)
+	'''	mplat = MovingPlat(self.player,70,40,MPLATFORM_COLOR)
 		mplat.rect.x = 1350
 		mplat.rect.y = 280
 		mplat.left_bound = 1350
