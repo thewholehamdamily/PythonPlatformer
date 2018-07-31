@@ -13,7 +13,7 @@ class Player(pygame.sprite.Sprite):
 		self.image = pygame.Surface([width,height])
 		self.image.fill(RED)
 		self.rect = self.image.get_rect()
-
+		self.fall_speed_cap = 10
 		self.change_x = 0
 		self.change_y = 0
 		self.direct = 1
@@ -53,7 +53,12 @@ class Player(pygame.sprite.Sprite):
 		elif self.jumped:
 			key = pygame.key.get_pressed() 
 			if key[pygame.K_UP] == False and key[pygame.K_x] == False:
-				self.change_y += .65
+				if self.change_y == self.fall_speed_cap:
+					self.change_y += 0
+				elif (self.change_y + .85) > self.fall_speed_cap:
+					self.change_y += (self.fall_speed_cap - self.change_y)
+				else:
+					self.change_y += .85
 
 	def jump(self):
 		self.jumped = True
