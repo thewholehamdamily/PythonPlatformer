@@ -14,6 +14,7 @@ class Player(pygame.sprite.Sprite):
 
 		self.change_x = 0
 		self.change_y = 0
+		self.direct = 1
 		self.level = None
 	def update(self):
 		self.get_gravity()
@@ -52,7 +53,9 @@ class Player(pygame.sprite.Sprite):
 
 	def left(self):
 		self.change_x = -6
+		self.direct = -1
 	def right(self):
 		self.change_x = 6
+		self.direct = 1
 	def stop(self):
 		self.change_x = 0
