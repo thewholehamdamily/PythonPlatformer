@@ -4,6 +4,7 @@ WIDTH = 800
 RED = (255,0,0)
 
 class Player(pygame.sprite.Sprite):
+
 	def __init__(self):
 		super().__init__()
 		width = 32
@@ -17,6 +18,7 @@ class Player(pygame.sprite.Sprite):
 		self.change_y = 0
 		self.direct = 1
 		self.level = None
+		self.jumped = False
 	def update(self):
 		self.get_gravity()
 		self.rect.x += self.change_x
@@ -43,11 +45,18 @@ class Player(pygame.sprite.Sprite):
 			self.change_y = 1
 		else:
 			self.change_y += .35
+		event = pygame.event.peek()
 		if self.rect.y >= HEIGHT - self.rect.height and self.change_y >= 0:
+			self.jumped = False
 			self.change_y = 0
 			self.rect.y = HEIGHT - self.rect.height
+		elif self.jumped:
+			key = pygame.key.get_pressed() 
+			if key[pygame.K_UP] == False:
+				self.change_y += .15
 
 	def jump(self):
+		self.jumped = True
 		self.rect.y += 2
 		platform_hit_list = pygame.sprite.spritecollide(self,self.level.plats,False)
 		self.rect.y -= 2
