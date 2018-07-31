@@ -2,7 +2,7 @@ import pygame
 import enemyparent
 
 class Metool(EnemyParent):
-	def __init__(self,d,x,y):
+	def __init__(self,x,y):
 		super().__init__(x,y)
 		self.image.fill((255,255,0))
 		self.hp = 1
