@@ -69,8 +69,11 @@ while not close:
 	for b in bullets:
 		for e in enemies:
 			if b.rect.colliderect(e.rect):
-				e.hurt();
-				b.kill();
+				e.hurt()
+				b.kill()
+		for p in currentL.plats:
+			if b.rect.colliderect(p.rect):
+				b.kill()
 
 	#Enemies attacking
 	for e in enemies:
