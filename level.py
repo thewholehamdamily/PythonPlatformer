@@ -63,8 +63,6 @@ class Level():
 		self.cam_shift += shift
 		for platform in self.plats:
 			platform.rect.x += shift
-		for s in self.active_sprites:
-			s.rect.x += shift
 			
 class Level1(Level):
 	def __init__(self,player):
