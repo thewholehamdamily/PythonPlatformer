@@ -2,7 +2,7 @@ import pygame
 import enemyparent
 
 #Slides back and forth
-class SlideBlade(EnemyParent):
+class SlideBlade(enemyparent.EnemyParent):
 	def __init__(self,v,h,d,x,y):
 		super().__init__(self,x,y)
 		self.image.fill((0,255,0))
@@ -29,7 +29,7 @@ class SlideBlade(EnemyParent):
 			self.change_x = self.horizontal * self.direct
 			self.change_y = self.horizontal * self.direct
 			self.moving = 1
-		else
+		else:
 			self.direct *= -1
 			self.change_x = 0
 			self.change_y = 0

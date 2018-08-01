@@ -20,7 +20,7 @@ class Metool(EnemyParent):
 		if vulnerable = 0:
 			vulnerable = 1
 			self.image.fill((255,255,255))
-		else
+		else:
 			vulnerable = 0
 			self.image.fill((255,255,0))
 			
