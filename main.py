@@ -104,7 +104,7 @@ while not close:
 				if e.rect.y < plr.rect.y:
 					e.rect.y += 2
 			#Big Eye jump direction
-			if e.id == 5:
+			if e.id == 5 and e.rect.x <= WIDTH:
 				if plr.rect.x > e.rect.x:
 					e.direct = 1
 				else
