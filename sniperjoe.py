@@ -38,3 +38,4 @@ class SniperJoe(pygame.sprite.Sprite):
 		self.vulnerable = 1
 		self.jumping = 1		
 
+qwe

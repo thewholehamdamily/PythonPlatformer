@@ -52,6 +52,7 @@ class Level():
 		self.plats = pygame.sprite.Group()
 		self.player = player
 		self.cam_shift  = 0
+		self.enemies = pygame.sprite.Group()
 	def update(self):
 		self.plats.update()
 	def draw(self,screen):
@@ -71,6 +72,32 @@ class Level1(Level):
 				 [210,70,800,400],
 				 [210,70,1000,500],
 				 [210,70,1120,280]]
+				 
+		screen1 =["                    ",
+				  "                    ",
+				  "                    ",
+				  "                    ",
+				  "                    ",
+				  "                    ",
+				  "                    ",
+				  "                    ",
+				  "                    ",
+				  "                    ",
+				  "                    ",
+				  "                    ",
+				  "                m   ",
+				  "         ppppppppppp",
+				  "pppppppppppppppppppp"]
+		
+		'''
+		for i in range(0,15):
+			for j in range(0,20):
+				if i[j] == "p":	
+					plat = Platform(32,32)
+					plat.rect.x = j*32
+					plat.rect.y = i*32
+			
+		'''
 		
 		
 		for platform in level:

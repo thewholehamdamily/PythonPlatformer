@@ -23,7 +23,6 @@ currentL = levels[currentLN]
 	
 active_sprites = pygame.sprite.Group()
 bullets = pygame.sprite.Group()
-enemies = pygame.sprite.Group()
 enemyBullets = pygame.sprite.Group()
 plr.level = currentL
 	
@@ -74,7 +73,7 @@ while not close:
 				b.kill();
 
 	#Enemies attacking
-	for e in enemies:
+	for e in currentL.enemies:
 		if e.alarm > e.fireRate:
 			#Metool bullets
 			if e.id == 1 and e.vulnerable == 0:
@@ -92,7 +91,7 @@ while not close:
 			if e.id == 3:
 				c = chaser.Chaser(e.rect.x,e.rect.y)
 				active_sprites.add(c)
-				enemies.add(c)
+				currentL.enemies.add(c)
 			#Chaser chasing
 			if e.id == 4:
 				if e.rect.x > plr.rect.x:
