@@ -21,7 +21,7 @@ levels.append(level.Level1(player))
 currentLN = 0
 currentL = levels[currentLN]
 	
-active_sprites = pygame.sprite.Group()
+active_sprites = currentL.active_sprites
 bullets = pygame.sprite.Group()
 enemyBullets = pygame.sprite.Group()
 plr.level = currentL

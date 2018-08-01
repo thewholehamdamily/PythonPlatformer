@@ -53,6 +53,7 @@ class Level():
 		self.player = player
 		self.cam_shift  = 0
 		self.enemies = pygame.sprite.Group()
+		self.active_sprites = pygame.sprite.Group()
 	def update(self):
 		self.plats.update()
 	def draw(self,screen):
