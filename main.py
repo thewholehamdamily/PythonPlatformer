@@ -3,6 +3,7 @@ import player
 import bullet
 import level
 import hud
+import boss
 
 HEIGHT = 600
 WIDTH = 800
