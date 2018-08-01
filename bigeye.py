@@ -5,7 +5,7 @@ class BigEye(EnemyParent):
 	def __init__(self,x,y):
 		height = 64
 		width = 64
-		super().__init__(x,y)
+		super().__init__(self,x,y)
 		self.image.fill((255,0,0))
 		self.hp = 10
 		power = 8

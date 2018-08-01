@@ -4,7 +4,7 @@ import enemyparent
 #Slides back and forth
 class SlideBlade(EnemyParent):
 	def __init__(self,v,h,d,x,y):
-		super().__init__(x,y)
+		super().__init__(self,x,y)
 		self.image.fill((0,255,0))
 		self.hp = 5
 		power = 4

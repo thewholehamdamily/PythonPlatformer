@@ -5,7 +5,7 @@ class SniperJoe(pygame.sprite.Sprite):
 	def __init__(self,x,y):
 		width = 32
 		height = 64
-		super().__init__(x,y)
+		super().__init__(self,x,y)
 		self.hp = 3
 		fireRate = 120
 		power = 4

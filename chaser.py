@@ -3,7 +3,7 @@ import enemyparent
 
 class Chaser(EnemyParent):
 	def __init__(self,x,y):
-		super().__init__(x,y)
+		super().__init__(self,x,y)
 		self.image.fill((255,255,0))
 		self.hp = 1
 		power = 4
