@@ -63,50 +63,50 @@ class Level():
 		self.cam_shift += shift
 		for platform in self.plats:
 			platform.rect.x += shift
+		for s in self.active_sprites:
+			s.rect.x += shift
 			
 class Level1(Level):
 	def __init__(self,player):
 		Level.__init__(self,player)
 		self.limit = -1000
 		
-		level = [[210,70,500,500],
-				 [210,70,800,400],
-				 [210,70,1000,500],
-				 [210,70,1120,280]]
-				 
-		screen1 =["                    ",
-				  "                    ",
-				  "                    ",
-				  "                    ",
-				  "                    ",
-				  "                    ",
-				  "                    ",
-				  "                    ",
-				  "                    ",
-				  "                    ",
-				  "                    ",
-				  "                    ",
-				  "                m   ",
-				  "         ppppppppppp",
-				  "pppppppppppppppppppp"]
+		s1=["                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"           ppppppppp",
+			"                    ",
+			"                    "]
 		
+		level = [s1]
+
+		#Level generation loop
+		for h in range(0,len(level)):
+			for i in range(0,15):
+				for j in range(0,20):
+					if level[h][i][j] == "p":
+						plat = Platform(32,32)
+						plat.rect.x = j*32 + h*640
+						plat.rect.y = i*32
+						plat.player = self.player
+						self.plats.add(plat)
 		'''
-		for i in range(0,15):
-			for j in range(0,20):
-				if i[j] == "p":	
-					plat = Platform(32,32)
-					plat.rect.x = j*32
-					plat.rect.y = i*32
-			
-		'''
-		
-		
 		for platform in level:
 			plat = Platform(platform[0],platform[1])
 			plat.rect.x = platform[2]
 			plat.rect.y = platform[3]
 			plat.player = self.player
 			self.plats.add(plat)
+		'''
 	'''	mplat = MovingPlat(self.player,70,40,MPLATFORM_COLOR)
 		mplat.rect.x = 1350
 		mplat.rect.y = 280
