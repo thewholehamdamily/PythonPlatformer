@@ -107,7 +107,7 @@ while not close:
 			if e.id == 5 and e.rect.x <= WIDTH:
 				if plr.rect.x > e.rect.x:
 					e.direct = 1
-				else
+				else:
 					e.direct = -1
 				e.change_x = 6*e.direct
 			e.alarm = 0
@@ -126,7 +126,7 @@ while not close:
 				elif e.change_x < 0:
 					e.rect.left = block.rect.right
 			if e.rect.bottom > HEIGHT:
-				e.rect.bottom = HEIGHT:
+				e.rect.bottom = HEIGHT
 				e.jumping = 0
 
 
