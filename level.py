@@ -2,6 +2,7 @@
 includes classes Platform, Level, and Level1'''
 import pygame
 import player
+import metool
 
 BACKGROUND_COLOR = (3,3,3) #black
 PLATFORM_COLOR = (191,62,255) #purple
@@ -80,7 +81,7 @@ class Level1(Level):
 			"                    ",
 			"                    ",
 			"                    ",
-			"                    ",
+			"                m   ",
 			"           ppppppppp",
 			"                    ",
 			"                    "]
@@ -97,6 +98,10 @@ class Level1(Level):
 						plat.rect.y = i*32
 						plat.player = self.player
 						self.plats.add(plat)
+					elif level[h][i][j] == "p":
+						met = metool.Metool(j*32 + h*640,i*32)
+						self.enemies.add(met)
+						self.active_sprites.add(met)
 		'''
 		for platform in level:
 			plat = Platform(platform[0],platform[1])
