@@ -39,7 +39,7 @@ class Boss(pg.sprite.Sprite):
 		self.image_up.set_colorkey(BLACK)
 		self.image_down = self.game.spritesheet.get_image(568, 1534, 122, 135)
 		self.image_down.set_colorkey(BLACK)
-		self.hp = 50
+		self.hp = 30
 		self.power = 8
 
 		self.image = self.image_up
@@ -77,7 +77,7 @@ class Boss(pg.sprite.Sprite):
 
 	def hurt(self):
 	
-		self.hp -= 5
+		self.hp -= 1
 		if self.hp <= 0:
 
 			self.kill()  
