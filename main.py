@@ -3,7 +3,6 @@ import player
 import bullet
 import level
 import hud
-import boss
 
 HEIGHT = 600
 WIDTH = 800
@@ -70,11 +69,9 @@ while not close:
 	for b in bullets:
 		for e in enemies:
 			if b.rect.colliderect(e.rect):
-				e.hurt()
-				b.kill()
-		for p in currentL.plats:
-			if b.rect.colliderect(p.rect):
-				b.kill()
+				if e.vulnerable == 1:
+					e.hurt();
+				b.kill();
 
 	#Enemies attacking
 	for e in enemies:
@@ -106,7 +103,31 @@ while not close:
 					e.rect.y -= 2
 				if e.rect.y < plr.rect.y:
 					e.rect.y += 2
+			#Big Eye jump direction
+			if e.id == 5:
+				if plr.rect.x > e.rect.x:
+					e.direct = 1
+				else
+					e.direct = -1
+				e.change_x = 6*e.direct
 			e.alarm = 0
+		#Big Eye Jump Collision
+		if e.id == 5:
+			block_hit_list = pygame.sprite.spritecollide(e,plr.level.plats,False)
+			for block in block_hit_list:
+				if e.change_y > 0:
+					e.rect.bottom = block.rect.top
+					e.jumping = 0
+				elif e.change_y < 0:
+					e.rect.top = block.rect.top
+				e.change_y = 0
+				if e.change_x > 0:
+					e.rect.right = block.rect.left
+				elif e.change_x < 0:
+					e.rect.left = block.rect.right
+			if e.rect.bottom > HEIGHT:
+				e.rect.bottom = HEIGHT:
+				e.jumping = 0
 
 
 	active_sprites.update()
