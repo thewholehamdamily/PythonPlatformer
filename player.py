@@ -1,6 +1,6 @@
 import pygame
-HEIGHT = 600
-WIDTH = 800
+HEIGHT = 480
+WIDTH = 640
 RED = (255,0,0)
 
 class Player(pygame.sprite.Sprite):

@@ -2,7 +2,7 @@ import pygame
 import player
 
 BORDER_COLOR = (255,255,255)	#white
-HEALTH_COLOR = (255,215,0)	#yellow
+HEALTH_COLOR = (255,215,0)		#gold
 class HUD():
 	def __init__(self,f,size,p,screen):
 		self.screen = screen

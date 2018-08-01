@@ -19,5 +19,5 @@ class Bullet(pygame.sprite.Sprite):
 		#Move the bullet
 		self.rect.x += self.change_x
 		#If the bullet goes offscreen, destroy it
-		if self.rect.x < -16 or self.rect.x > 800:
+		if self.rect.x < -16 or self.rect.x > 640:
 			self.kill()

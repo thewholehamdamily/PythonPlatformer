@@ -66,10 +66,13 @@ class Level1(Level):
 	def __init__(self,player):
 		Level.__init__(self,player)
 		self.limit = -1000
+		
 		level = [[210,70,500,500],
 				 [210,70,800,400],
 				 [210,70,1000,500],
 				 [210,70,1120,280]]
+		
+		
 		for platform in level:
 			plat = Platform(platform[0],platform[1])
 			plat.rect.x = platform[2]

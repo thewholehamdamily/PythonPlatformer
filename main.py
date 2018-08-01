@@ -4,8 +4,8 @@ import bullet
 import level
 import hud
 
-HEIGHT = 600
-WIDTH = 800
+HEIGHT = 480
+WIDTH = 640
 
 pygame.init()
 	
@@ -27,7 +27,7 @@ enemies = pygame.sprite.Group()
 enemyBullets = pygame.sprite.Group()
 plr.level = currentL
 	
-plr.rect.x = 340
+plr.rect.x = 200
 plr.rect.y = HEIGHT - plr.rect.height
 active_sprites.add(plr)
 	
@@ -76,18 +76,18 @@ while not close:
 	#Enemies attacking
 	for e in enemies:
 		if e.alarm > e.fireRate:
-			e.attack()
 			#Metool bullets
 			if e.id == 1 and e.vulnerable == 0:
-				b = bullet.Bullet(315,e.rect.x,e.rect.y+16)
+				b = enemybullet.EnemyBullet(315,e.rect.x,e.rect.y+16)
 				active_sprites.add(b)
-				bullets.add(b)
-				b = bullet.Bullet(270,e.rect.x,e.rect.y+16)
+				enemyBullets.add(b)
+				b = enemybullet.EnemyBullet(270,e.rect.x,e.rect.y+16)
 				active_sprites.add(b)
-				bullets.add(b)
-				b = bullet.Bullet(225,e.rect.x,e.rect.y+16)
+				enemyBullets.add(b)
+				b = enemybullet.EnemyBullet(225,e.rect.x,e.rect.y+16)
 				active_sprites.add(b)
-				bullets.add(b)
+				enemyBullets.add(b)
+				
 			#Chaser spawning
 			if e.id == 3:
 				c = chaser.Chaser(e.rect.x,e.rect.y)
@@ -110,6 +110,17 @@ while not close:
 				else:
 					e.direct = -1
 				e.change_x = 6*e.direct
+			#Choose which attack to do for Sniper Joe
+			if e.id == 6:
+				if plr.rect.y > e.rect.y:
+					e.state = 1
+				else:
+					e.state = 0
+					if e.vulnerable == 0:
+						b = bullet.Bullet(270,e.rect.x,e.rect.y,y+16)
+						active_sprites.add(b)
+						enemyBullets.add(b)
+			e.attack()
 			e.alarm = 0
 		#Big Eye Jump Collision
 		if e.id == 5:
@@ -128,19 +139,28 @@ while not close:
 			if e.rect.bottom > HEIGHT:
 				e.rect.bottom = HEIGHT
 				e.jumping = 0
-
+		#Sniper Joe jump collision
+		if e.id == 6:
+			block_hit_list = pygame.sprite.spritecollide(e,plr.level.plats,False)
+			for block in block_hit_list:
+				if e.change_y > 0:
+					e.rect.bottom = block.rect.top
+					e.jumping = 0
+				if e.rect.bottom > HEIGHT:
+					e.rect.bottom = HEIGHT
+					e.jumping = 0
 
 	active_sprites.update()
 	currentL.update()
-	if plr.rect.right >= 416:
-		diff = plr.rect.right - 416
-		plr.rect.right = 416
+	if plr.rect.right >= WIDTH/2 + 16:
+		diff = plr.rect.right - (WIDTH/2 + 16)
+		plr.rect.right = WIDTH/2 + 16
 		ShiftCamera(-diff)
 		currentL.ShiftCamera(-diff)
 		camPos += diff
-	if plr.rect.left <= 384 and camPos > 0:
-		diff = 384 - plr.rect.left
-		plr.rect.left = 384
+	if plr.rect.left <= WIDTH/2 - 16 and camPos > 0:
+		diff = (WIDTH/2 - 16) - plr.rect.left
+		plr.rect.left = WIDTH/2 - 16
 		ShiftCamera(diff)
 		currentL.ShiftCamera(diff)
 		camPos -= diff

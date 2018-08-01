@@ -7,36 +7,34 @@ class SniperJoe(pygame.sprite.Sprite):
 		height = 64
 		super().__init__(x,y)
 		self.hp = 3
+		fireRate = 120
 		power = 4
 		self.vulnerable = 0
 		self.alarm = 0
+		self.state = 0
 		self.jumping = 0
-		self.shooting = 0
-
-	def update(self):
-		self.alarm += 1
-		if self.alarm >= 120:
-			self.attack()
-
-	def attack():
+		self.id = 6
 		
-
-	def get_gravity(self):
-		if self.change_y == 0:
-			self.change_y = 1
+	def update(self):
+		if self.jumping == 0:
+			self.alarm += 1
+			self.rect.x += 0
+			self.rect.y += 0
 		else:
 			self.change_y += .35
-		if self.rect.y >= 600 - self.rect.height and self.change_y >= 0:
-			self.change_y = 0
-			self.rect.y = 600 - self.rect.height
+			self.rect.x += self.change_x
+			self.rect.y += self.change_y
+
+	def attack(self):
+		if state == 0 and vulnerable = 0:
+			vulnerable = 1
+		elif state == 1:
+			jump()
+		else:
+			vulnerable = 0
 
 	def jump(self):
-		self.rect.y += 2
-		platform_hit_list = pygame.sprite.spritecollide(self,self.level.plats,False)
-		self.rect.y -= 2
-		if len(platform_hit_list) > 0 or self.rect.bottom >= 600:
-			self.change_y = -10
-
-	def shoot(self):
-		
+		self.change_y = -10
+		self.vulnerable = 1
+		self.jumping = 1		
 
