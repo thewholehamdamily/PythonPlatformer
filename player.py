@@ -2,6 +2,7 @@ import pygame
 HEIGHT = 480
 WIDTH = 640
 RED = (255,0,0)
+BLUE = (51,161,201)
 
 class Player(pygame.sprite.Sprite):
 	def __init__(self):
@@ -18,10 +19,16 @@ class Player(pygame.sprite.Sprite):
 		self.direct = 1
 		self.level = None
 		self.jumped = False
+		self.invincible = False
+		self.coll_time = 0
+		
 	def update(self):
 		self.get_gravity()
 		self.rect.x += self.change_x
-
+		if self.invincible:
+			self.image.fill(BLUE)
+		else:
+			self.image.fill(RED)
 		block_hit_list = pygame.sprite.spritecollide(self,self.level.plats,False)
 		for block in block_hit_list:
 			if self.change_x > 0:

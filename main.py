@@ -43,6 +43,8 @@ def ShiftCamera(shift):
 				a.rect.x += shift
 	
 while not close:
+	if (plr.invincible == True) and (pygame.time.get_ticks() - plr.coll_time) > 3000:
+		plr.invincible = False
 	#Movement
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
@@ -63,7 +65,11 @@ while not close:
 				plr.stop()
 			if event.key == pygame.K_RIGHT and plr.change_x > 0:
 				plr.stop()
-
+	for e in enemies:
+		if plr.rect.colliderect(e.rect) and plr.invincible == False:
+			plr.health -= e.power
+			plr.invincible = True
+			
 	#Bullets colliding w/ enemies
 	for b in bullets:
 		for e in enemies:
