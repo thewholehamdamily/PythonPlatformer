@@ -29,7 +29,7 @@ class SlideBlade(enemyparent.EnemyParent):
 			self.change_x = self.horizontal * self.direct
 			self.change_y = self.horizontal * self.direct
 			self.moving = 1
-		else
+		else:
 			self.direct *= -1
 			self.change_x = 0
 			self.change_y = 0
