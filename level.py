@@ -7,6 +7,7 @@ import slideblade
 import chaserspawner
 import bigeye
 import sniperjoe
+import boss
 
 BACKGROUND_COLOR = (3,3,3) #black
 PLATFORM_COLOR = (191,62,255) #purple
@@ -59,6 +60,7 @@ class Level():
 		self.cam_shift  = 0
 		self.enemies = pygame.sprite.Group()
 		self.active_sprites = pygame.sprite.Group()
+		self.boss = pygame.sprite.Group()
 	def update(self):
 		self.plats.update()
 	def draw(self,screen):
