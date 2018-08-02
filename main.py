@@ -158,16 +158,18 @@ while win == 0:
 				e.jumping = 0
 		#Sniper Joe jump collision
 		if e.id == 6:
-			if e.change_y > 0:
-				if e.jumping == 1:
-					e.image.fill((0,255,0))
-					e.rect.bottom = block.rect.top
-					e.jumping = 0
-				if e.rect.bottom > HEIGHT:
+			block_hit_list = pygame.sprite.spritecollide(e,plr.level.plats,False)
+			for block in block_hit_list:
+				if e.change_y > 0:
 					if e.jumping == 1:
 						e.image.fill((0,255,0))
-					e.rect.bottom = HEIGHT
-					e.jumping = 0
+						e.rect.bottom = block.rect.top
+						e.jumping = 0
+					if e.rect.bottom > HEIGHT:
+						if e.jumping == 1:
+							e.image.fill((0,255,0))
+						e.rect.bottom = HEIGHT
+						e.jumping = 0
 
 	#How many enemies are left?
 	enemiesLeft = 0

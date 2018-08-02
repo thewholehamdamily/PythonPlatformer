@@ -187,7 +187,24 @@ class Level1(Level):
 			"                    ",
 			"        pppp      pp",
 			"                   <"]
-		level = [s1,s2,s3,s4,s5,s6,s7]
+			
+		s8=["                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"          B         ",
+			"  pp            pp  ",
+			"     pp      pp     ",
+			"                    "]
+			
+		level = [s1,s2,s3,s4,s5,s6,s7,s8]
 
 		#Level generation loop
 		for h in range(0,len(level)):

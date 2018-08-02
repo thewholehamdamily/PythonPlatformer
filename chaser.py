@@ -15,5 +15,5 @@ class Chaser(enemyparent.EnemyParent):
 		
 	def update(self):
 		self.alarm += 1
-		if self.rect.x < 32 or self.rect.x > 640
+		if self.rect.x < 32 or self.rect.x > 640:
 			self.kill()
