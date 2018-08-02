@@ -269,8 +269,8 @@ class Level1(Level):
 						self.active_sprites.add(joe)
 						
 					#Boss
-					elif level[h][i][j] == "b":
-						boss = boss.Boss(j*32 + h*640, i*32-32)
+					elif level[h][i][j] == "B":
+						bbeg = boss.Boss(j*32 + h*640, i*32-32)
 						self.enemies.add(boss)
 						self.active_sprites.add(boss)
 		'''
