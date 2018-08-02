@@ -1,6 +1,4 @@
 import pygame as pg 
-
-
 SPRITESHEET = "spritesheet_jumper.png"
 
 class Loader: 									 	# Loads the image to the program
@@ -32,8 +30,8 @@ class Boss_Sprite_Sheet:
 
 class Boss(pg.sprite.Sprite):
 
-	def __init__(self):
-		pg.sprite.Sprite.__init__(self, self.groups)
+	def __init__(self,x,y):
+		super().__init__() 
 											 # Creating the image for boss
 		self.image_up = self.game.spritesheet.get_image(566, 510, 122, 139)
 		self.image_up.set_colorkey(BLACK)
@@ -61,16 +59,14 @@ class Boss(pg.sprite.Sprite):
 		self.vy += self.dy 
 
 		if self.vy > 3 or self.vy < -3:						# Makes the enemy hover 
-		
 			self.dy += -1 
 
 		center = self.rect.center
 		if self.dy < 0: 											# For movement 
 
 			self.image = self.image_up 
-
+			
 		else:
-
 			self.image = self.image_down
 			self.rect = self.image.get_rect()
 			self.rect.center = center 
