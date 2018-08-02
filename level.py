@@ -85,7 +85,7 @@ class Level1(Level):
 			"                    ",
 			"                    ",
 			"                    ",
-			"                ^   ",
+			"                s   ",
 			"           ppppppppp",
 			"                    ",
 			"                    "]
@@ -149,7 +149,7 @@ class Level1(Level):
 						self.enemies.add(eye)
 						self.active_sprites.add(eye)
 					#Sniper Joe
-					elif level[h][i][j] == "j":
+					elif level[h][i][j] == "s":
 						joe = sniperjoe.SniperJoe(j*32 + h*640,i*32-32)
 						self.enemies.add(joe)
 						self.active_sprites.add(joe)
