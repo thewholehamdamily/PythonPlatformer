@@ -31,10 +31,10 @@ class BigEye(enemyparent.EnemyParent):
 
 	def attack(self):
 		#Every three hops, jump high
-		if self.count < 3
+		if self.count < 3:
 			self.change_y = -10
 			self.count += 1
-		else
+		else:
 			self.change_y = -25
 			self.count = 0
 		self.change_x = 4*direct
