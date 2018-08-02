@@ -1,8 +1,10 @@
 import pygame
 import player
 import bullet
+import enemybullet
 import level
 import hud
+from math import pi
 
 HEIGHT = 480
 WIDTH = 640
@@ -72,7 +74,7 @@ while not close:
 			
 	#Bullets colliding w/ enemies
 	for b in bullets:
-		for e in enemies:
+		for e in currentL.enemies:
 			if b.rect.colliderect(e.rect):
 				if e.vulnerable == 1:
 					e.hurt();
@@ -83,13 +85,13 @@ while not close:
 		if e.alarm > e.fireRate:
 			#Metool bullets
 			if e.id == 1 and e.vulnerable == 0:
-				b = enemybullet.EnemyBullet(315,e.rect.x,e.rect.y+16)
+				b = enemybullet.EnemyBullet(pi*1.75,e.rect.x,e.rect.y+16)
 				active_sprites.add(b)
 				enemyBullets.add(b)
-				b = enemybullet.EnemyBullet(270,e.rect.x,e.rect.y+16)
+				b = enemybullet.EnemyBullet(pi*1.5,e.rect.x,e.rect.y+16)
 				active_sprites.add(b)
 				enemyBullets.add(b)
-				b = enemybullet.EnemyBullet(225,e.rect.x,e.rect.y+16)
+				b = enemybullet.EnemyBullet(pi*1.25,e.rect.x,e.rect.y+16)
 				active_sprites.add(b)
 				enemyBullets.add(b)
 				
@@ -122,7 +124,7 @@ while not close:
 				else:
 					e.state = 0
 					if e.vulnerable == 0:
-						b = bullet.Bullet(270,e.rect.x,e.rect.y,y+16)
+						b = bullet.Bullet(pi*1.5,e.rect.x,e.rect.y,y+16)
 						active_sprites.add(b)
 						enemyBullets.add(b)
 			e.attack()
@@ -155,8 +157,8 @@ while not close:
 					e.rect.bottom = HEIGHT
 					e.jumping = 0
 
-	active_sprites.update()
-	currentL.update()
+	plr.level.active_sprites.update()
+	plr.level.update()
 	if plr.rect.right >= WIDTH/2 + 16:
 		diff = plr.rect.right - (WIDTH/2 + 16)
 		plr.rect.right = WIDTH/2 + 16
