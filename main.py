@@ -134,7 +134,7 @@ while not close:
 				else:
 					e.state = 0
 					if e.vulnerable == 0:
-						b = bullet.Bullet(pi*1.5,e.rect.x,e.rect.y,y+16)
+						b = bullet.Bullet(pi*1.5,e.rect.x,e.rect.y+16)
 						active_sprites.add(b)
 						enemyBullets.add(b)
 			e.attack()

@@ -90,7 +90,86 @@ class Level1(Level):
 			"                    ",
 			"                    "]
 		
-		level = [s1]
+		s2=["                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"         pppppp     ",
+			"                    ",
+			"                    ",
+			"                  pp",
+			"                    "]
+			
+		s3=["                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"               m    ",
+			"           ppppp    ",
+			"pppp              < ",
+			"                    "]
+			
+		s4=["                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"     c              ",
+			"    ppp             ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"               b    ",
+			"                    "]
+			
+		s5=["                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"   !                ",
+			"                    ",
+			"                   m",
+			"              pppppp",
+			"                    ",
+			"                    ",
+			"        pppp        ",
+			"                  pp",
+			"                    "]
+			
+		s6=["                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"           c        ",
+			" r         p        ",
+			"                    ",
+			"                  pp",
+			"                    ",
+			"             ppp    ",
+			"                    ",
+			"      ppppp         ",
+			"ppp                 ",
+			"                    "]
+		level = [s1,s2,s3,s4,s5,s6]
 
 		#Level generation loop
 		for h in range(0,len(level)):
@@ -114,7 +193,7 @@ class Level1(Level):
 						self.enemies.add(blade)
 						self.active_sprites.add(blade)
 					#Down Slide Blade
-					elif level[h][i][j] == "^":
+					elif level[h][i][j] == "!":
 						blade = slideblade.SlideBlade(1,0,1,j*32 + h*640,i*32)
 						self.enemies.add(blade)
 						self.active_sprites.add(blade)

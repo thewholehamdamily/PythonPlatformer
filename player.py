@@ -1,4 +1,5 @@
 import pygame
+import sys
 HEIGHT = 480
 WIDTH = 640
 RED = (255,0,0)
@@ -23,6 +24,9 @@ class Player(pygame.sprite.Sprite):
 		self.coll_time = 0
 		
 	def update(self):
+		if self.health <= 0:
+			pygame.quit()
+			sys.exit()
 		self.get_gravity()
 		self.rect.x += self.change_x
 		if self.invincible:
