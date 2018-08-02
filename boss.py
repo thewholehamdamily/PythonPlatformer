@@ -33,7 +33,7 @@ class Boss_Sprite_Sheet:
 class Boss(pg.sprite.Sprite):
 
 	def __init__(self):
-		pg.sprite.Sprite.__init__(self, self.groups)  
+		pg.sprite.Sprite.__init__(self, self.groups)
 											 # Creating the image for boss
 		self.image_up = self.game.spritesheet.get_image(566, 510, 122, 139)
 		self.image_up.set_colorkey(BLACK)
@@ -41,7 +41,9 @@ class Boss(pg.sprite.Sprite):
 		self.image_down.set_colorkey(BLACK)
 		self.hp = 30
 		self.power = 8
-
+		self.id = 0
+		self.vulnerable = 1
+		
 		self.image = self.image_up
 		self.rect.centerx = choice([-100, WIDTH + 100]) 			# Where the boss will appear
 		self.vx = randrange(1,4)						# A random speed 
@@ -81,6 +83,9 @@ class Boss(pg.sprite.Sprite):
 		if self.hp <= 0:
 
 			self.kill()  
+			
+	def attack(self):
+		pass
 
 
 
