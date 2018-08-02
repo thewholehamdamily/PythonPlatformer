@@ -5,6 +5,7 @@ import enemybullet
 import level
 import hud
 from math import pi
+import chaser
 
 HEIGHT = 480
 WIDTH = 640
