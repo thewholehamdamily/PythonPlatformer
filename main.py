@@ -40,6 +40,10 @@ clock = pygame.time.Clock()
 camPos = 0
 HUD = hud.HUD("monospace",15,plr,screen)
 
+win = 0
+
+enemiesLeft = 0
+
 def ShiftCamera(shift):
 		for a in active_sprites:
 			if a != plr:
@@ -165,6 +169,20 @@ while not close:
 					e.rect.bottom = HEIGHT
 					e.jumping = 0
 
+	#How many enemies are left?
+	enemiesLeft = 0
+	for i in currentL.enemies:
+		if i.id != 3:
+			enemiesLeft+=1
+			
+	#Win condition
+	if enemiesLeft <= 0:
+		win = 1
+		
+	#Lose Condition
+	if plr.health <= 0:
+		win = -1
+			
 	plr.level.active_sprites.update()
 	plr.level.update()
 	if plr.rect.right >= WIDTH/2 + 16:
