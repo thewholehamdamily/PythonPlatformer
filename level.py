@@ -188,7 +188,7 @@ class Level1(Level):
 			"        pppp      pp",
 			"                   <"]
 			
-		s8=["                    ",
+		'''s8=["                    ",
 			"                    ",
 			"                    ",
 			"                    ",
@@ -202,9 +202,9 @@ class Level1(Level):
 			"          B         ",
 			"  pp            pp  ",
 			"     pp      pp     ",
-			"                    "]
+			"                    "]'''
 			
-		level = [s1,s2,s3,s4,s5,s6,s7,s8]
+		level = [s1,s2,s3,s4,s5,s6,s7]
 
 		#Level generation loop
 		for h in range(0,len(level)):
@@ -268,20 +268,20 @@ class Level1(Level):
 						self.enemies.add(joe)
 						self.active_sprites.add(joe)
 						
-					#Boss
+					'''#Boss
 					elif level[h][i][j] == "B":
 						bbeg = boss.Boss(j*32 + h*640, i*32-32)
 						self.enemies.add(boss)
 						self.active_sprites.add(boss)
-		'''
+		
 		for platform in level:
 			plat = Platform(platform[0],platform[1])
 			plat.rect.x = platform[2]
 			plat.rect.y = platform[3]
 			plat.player = self.player
 			self.plats.add(plat)
-		'''
-	'''	mplat = MovingPlat(self.player,70,40,MPLATFORM_COLOR)
+		
+		mplat = MovingPlat(self.player,70,40,MPLATFORM_COLOR)
 		mplat.rect.x = 1350
 		mplat.rect.y = 280
 		mplat.left_bound = 1350

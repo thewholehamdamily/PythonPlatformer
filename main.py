@@ -49,7 +49,7 @@ def ShiftCamera(shift):
 			if a != plr:
 				a.rect.x += shift
 	
-while win == 0:
+while win == 0 and close == False:
 	if (plr.invincible == True) and (pygame.time.get_ticks() - plr.coll_time) > 300:
 		plr.invincible = False
 	#Movement
