@@ -1,5 +1,5 @@
 import pygame
-from math import sin, cos
+from math import sin, cos, pi
 
 BULLET_COLOR = (255,255,255)	#WHITE
 

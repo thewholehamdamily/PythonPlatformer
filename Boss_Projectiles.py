@@ -1,6 +1,6 @@
 import pygame 
 from settings import *
-from math import sin, cos
+from math import sin, cos, pi
 
 RED = (255, 0, 0) 
 
