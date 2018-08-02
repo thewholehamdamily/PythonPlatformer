@@ -68,7 +68,7 @@ while not close:
 				plr.stop()
 			if event.key == pygame.K_RIGHT and plr.change_x > 0:
 				plr.stop()
-	for e in enemies:
+	for e in currentL.enemies:
 		if plr.rect.colliderect(e.rect) and plr.invincible == False:
 			plr.health -= e.power
 			plr.invincible = True

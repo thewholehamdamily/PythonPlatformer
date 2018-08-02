@@ -15,7 +15,7 @@ class HUD():
 		HEALTH_HEIGHT = 200
 		fill = ((HEALTH_HEIGHT/32) * self.plr.health)
 		outer_bar = pygame.Rect(50,50,HEALTH_WIDTH,HEALTH_HEIGHT)
-		fill_bar = pygame.Rect(50,50,fill,HEALTH_HEIGHT)
+		fill_bar = pygame.Rect(50,50,HEALTH_WIDTH,fill)
 		pygame.draw.rect(self.screen,HEALTH_COLOR,fill_bar)
 		pygame.draw.rect(self.screen,BORDER_COLOR, outer_bar,2)
 		#hud = self.health_font.render("HEALTH: " + str(self.plr.health),1,(255,255,0))
