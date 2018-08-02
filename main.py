@@ -46,7 +46,7 @@ def ShiftCamera(shift):
 				a.rect.x += shift
 	
 while not close:
-	if (plr.invincible == True) and (pygame.time.get_ticks() - plr.coll_time) > 3000:
+	if (plr.invincible == True) and (pygame.time.get_ticks() - plr.coll_time) > 300:
 		plr.invincible = False
 	#Movement
 	for event in pygame.event.get():
@@ -68,7 +68,11 @@ while not close:
 				plr.stop()
 			if event.key == pygame.K_RIGHT and plr.change_x > 0:
 				plr.stop()
-	for e in enemies:
+	for e in currentL.enemies:
+		if plr.rect.colliderect(e.rect) and plr.invincible == False:
+			plr.health -= e.power
+			plr.invincible = True
+	for e in enemyBullets:
 		if plr.rect.colliderect(e.rect) and plr.invincible == False:
 			plr.health -= e.power
 			plr.invincible = True
@@ -149,12 +153,14 @@ while not close:
 				e.jumping = 0
 		#Sniper Joe jump collision
 		if e.id == 6:
-			block_hit_list = pygame.sprite.spritecollide(e,plr.level.plats,False)
-			for block in block_hit_list:
-				if e.change_y > 0:
+			if e.change_y > 0:
+				if e.jumping == 1:
+					e.image.fill((0,255,0))
 					e.rect.bottom = block.rect.top
 					e.jumping = 0
 				if e.rect.bottom > HEIGHT:
+					if e.jumping == 1:
+						e.image.fill((0,255,0))
 					e.rect.bottom = HEIGHT
 					e.jumping = 0
 
