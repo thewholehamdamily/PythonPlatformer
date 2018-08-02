@@ -1,11 +1,11 @@
 import pygame
 import enemyparent
 
-class BigEye(EnemyParent):
+class BigEye(enemyparent.EnemyParent):
 	def __init__(self,x,y):
 		height = 64
 		width = 64
-		super().__init__(self,x,y)
+		super().__init__(x,y)
 		self.image.fill((255,0,0))
 		self.hp = 10
 		power = 8
@@ -31,10 +31,10 @@ class BigEye(EnemyParent):
 
 	def attack(self):
 		#Every three hops, jump high
-		if self.count < 3:
+		if self.count < 3
 			self.change_y = -10
 			self.count += 1
-		else:
+		else
 			self.change_y = -25
 			self.count = 0
 		self.change_x = 4*direct

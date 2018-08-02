@@ -3,8 +3,7 @@ import enemyparent
 
 class Metool(enemyparent.EnemyParent):
 	def __init__(self,x,y):
-		super().__init__(self,x,y)
-		self.image.fill((255,255,0))
+		super().__init__(x,y)
 		self.hp = 1
 		power = 4
 		self.vulnerable = 0
