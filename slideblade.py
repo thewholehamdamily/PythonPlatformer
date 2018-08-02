@@ -26,8 +26,8 @@ class SlideBlade(enemyparent.EnemyParent):
 	
 	def attack(self):
 		if self.moving == 0:
-			self.change_x = self.horizontal * self.direct
-			self.change_y = self.horizontal * self.direct
+			self.change_x = self.horizontal * self.direct * 2
+			self.change_y = self.vertical * self.direct * 2
 			self.moving = 1
 		else:
 			self.direct *= -1
