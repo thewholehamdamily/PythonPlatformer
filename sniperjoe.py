@@ -2,7 +2,7 @@ import pygame
 import enemyparent
 
 class SniperJoe(enemyparent.EnemyParent):
-	def __init__(self.x,y):
+	def __init__(self,x,y):
 		width = 32
 		height = 64
 		super().__init__(x,y)
@@ -26,7 +26,7 @@ class SniperJoe(enemyparent.EnemyParent):
 			self.rect.y += self.change_y
 
 	def attack(self):
-		if self.state == 0 and self.vulnerable = 0:
+		if self.state == 0 and self.vulnerable == 0:
 			self.vulnerable = 1
 		elif self.state == 1:
 			jump()
