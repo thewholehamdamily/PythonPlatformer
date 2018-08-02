@@ -72,7 +72,7 @@ class Level():
 class Level1(Level):
 	def __init__(self,player):
 		Level.__init__(self,player)
-		self.limit = -1000
+		self.limit = -8000
 		
 		s1=["                    ",
 			"                    ",
@@ -169,7 +169,23 @@ class Level1(Level):
 			"      ppppp         ",
 			"ppp                 ",
 			"                    "]
-		level = [s1,s2,s3,s4,s5,s6]
+			
+		s7=["                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"               l    ",
+			"                    ",
+			"                    ",
+			"        pppp      pp",
+			"                   <"]
+		level = [s1,s2,s3,s4,s5,s6,s7]
 
 		#Level generation loop
 		for h in range(0,len(level)):
