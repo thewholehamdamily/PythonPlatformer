@@ -4,6 +4,7 @@ import bullet
 import enemybullet
 import level
 import hud
+from math import pi
 
 HEIGHT = 480
 WIDTH = 640
@@ -78,13 +79,13 @@ while not close:
 		if e.alarm > e.fireRate:
 			#Metool bullets
 			if e.id == 1 and e.vulnerable == 0:
-				b = enemybullet.EnemyBullet(45,e.rect.x,e.rect.y+16)
+				b = enemybullet.EnemyBullet(pi*1.75,e.rect.x,e.rect.y+16)
 				active_sprites.add(b)
 				enemyBullets.add(b)
-				b = enemybullet.EnemyBullet(90,e.rect.x,e.rect.y+16)
+				b = enemybullet.EnemyBullet(pi*1.5,e.rect.x,e.rect.y+16)
 				active_sprites.add(b)
 				enemyBullets.add(b)
-				b = enemybullet.EnemyBullet(135,e.rect.x,e.rect.y+16)
+				b = enemybullet.EnemyBullet(pi*1.25,e.rect.x,e.rect.y+16)
 				active_sprites.add(b)
 				enemyBullets.add(b)
 				
@@ -117,7 +118,7 @@ while not close:
 				else:
 					e.state = 0
 					if e.vulnerable == 0:
-						b = bullet.Bullet(270,e.rect.x,e.rect.y,y+16)
+						b = bullet.Bullet(pi*1.5,e.rect.x,e.rect.y,y+16)
 						active_sprites.add(b)
 						enemyBullets.add(b)
 			e.attack()
