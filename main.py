@@ -76,7 +76,7 @@ while not close:
 	#Bullets colliding w/ enemies
 	for b in bullets:
 		for e in currentL.enemies:
-			if b.rect.colliderect(e.rect):
+			if b.rect.colliderect(e.rect) and e.vulnerable != 2:
 				if e.vulnerable == 1:
 					e.hurt();
 				b.kill();
