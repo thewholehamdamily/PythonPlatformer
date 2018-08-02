@@ -1,4 +1,5 @@
 import pygame
+from math import sin, cos
 
 BULLET_COLOR = (255,255,255)	#WHITE
 
@@ -11,6 +12,8 @@ class EnemyBullet(pygame.sprite.Sprite):
 		self.image.fill(BULLET_COLOR)
 		self.rect = self.image.get_rect()
 		self.direct = d
+		self.rect.x = x
+		self.rect.y = y
 
 	def update(self):
 		#Move the bullet

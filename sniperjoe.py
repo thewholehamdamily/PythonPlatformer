@@ -7,8 +7,8 @@ class SniperJoe(enemyparent.EnemyParent):
 		height = 64
 		super().__init__(x,y)
 		self.hp = 3
-		fireRate = 120
-		power = 4
+		self.fireRate = 120
+		self.power = 4
 		self.vulnerable = 0
 		self.alarm = 0
 		self.state = 0
@@ -26,9 +26,9 @@ class SniperJoe(enemyparent.EnemyParent):
 			self.rect.y += self.change_y
 
 	def attack(self):
-		if state == 0 and vulnerable = 0:
-			vulnerable = 1
-		elif state == 1:
+		if self.state == 0 and self.vulnerable = 0:
+			self.vulnerable = 1
+		elif self.state == 1:
 			jump()
 		else:
 			vulnerable = 0

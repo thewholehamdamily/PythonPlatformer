@@ -98,7 +98,7 @@ class Level1(Level):
 						plat.rect.y = i*32
 						plat.player = self.player
 						self.plats.add(plat)
-					elif level[h][i][j] == "p":
+					elif level[h][i][j] == "m":
 						met = metool.Metool(j*32 + h*640,i*32)
 						self.enemies.add(met)
 						self.active_sprites.add(met)

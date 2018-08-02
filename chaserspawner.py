@@ -10,7 +10,7 @@ class ChaserSpawner(pygame.sprite.Sprite):
 		self.rect = self.image.get_rect()
 		self.rect.x = x
 		self.rect.y = y
-		fireRate = 300
+		self.fireRate = 300
 		self.alarm = 0
 		self.id = 3
 

@@ -1,6 +1,7 @@
 import pygame
 import player
 import bullet
+import enemybullet
 import level
 import hud
 
@@ -77,13 +78,13 @@ while not close:
 		if e.alarm > e.fireRate:
 			#Metool bullets
 			if e.id == 1 and e.vulnerable == 0:
-				b = enemybullet.EnemyBullet(315,e.rect.x,e.rect.y+16)
+				b = enemybullet.EnemyBullet(45,e.rect.x,e.rect.y+16)
 				active_sprites.add(b)
 				enemyBullets.add(b)
-				b = enemybullet.EnemyBullet(270,e.rect.x,e.rect.y+16)
+				b = enemybullet.EnemyBullet(90,e.rect.x,e.rect.y+16)
 				active_sprites.add(b)
 				enemyBullets.add(b)
-				b = enemybullet.EnemyBullet(225,e.rect.x,e.rect.y+16)
+				b = enemybullet.EnemyBullet(135,e.rect.x,e.rect.y+16)
 				active_sprites.add(b)
 				enemyBullets.add(b)
 				
@@ -149,8 +150,8 @@ while not close:
 					e.rect.bottom = HEIGHT
 					e.jumping = 0
 
-	active_sprites.update()
-	currentL.update()
+	plr.level.active_sprites.update()
+	plr.level.update()
 	if plr.rect.right >= WIDTH/2 + 16:
 		diff = plr.rect.right - (WIDTH/2 + 16)
 		plr.rect.right = WIDTH/2 + 16

@@ -1,5 +1,6 @@
 import pygame 
 from settings import *
+from math import sin, cos
 
 RED = (255, 0, 0) 
 
@@ -14,6 +15,8 @@ class Boss_Projectiles(pygame.sprite.Sprite):
 		self.image.fill(RED) 
 		self.rect = self.image.get_rect() 
 		self. = d
+		self.rect.x = x
+		self.rect.y = y
 
 	def update(self): 
 		

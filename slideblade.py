@@ -7,10 +7,10 @@ class SlideBlade(enemyparent.EnemyParent):
 		super().__init__(x,y)
 		self.image.fill((0,255,0))
 		self.hp = 5
-		power = 4
+		self.power = 4
 		self.vulnerable = 1
 		self.alarm = 0
-		fireRate = 120
+		self.fireRate = 120
 		self.id = 2
 		self.direct = d		#Which direction does it start going?
 		self.change_x = 0

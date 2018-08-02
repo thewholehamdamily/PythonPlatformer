@@ -8,10 +8,10 @@ class BigEye(enemyparent.EnemyParent):
 		super().__init__(x,y)
 		self.image.fill((255,0,0))
 		self.hp = 10
-		power = 8
+		self.power = 8
 		self.vulnerable = 1
 		self.alarm = 0
-		fireRate = 60
+		self.fireRate = 60
 		self.id = 5
 		self.direct = -1
 		self.change_x = 0
