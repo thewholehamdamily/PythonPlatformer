@@ -85,7 +85,7 @@ class Level1(Level):
 			"                    ",
 			"                    ",
 			"                    ",
-			"                m   ",
+			"                ^   ",
 			"           ppppppppp",
 			"                    ",
 			"                    "]
@@ -109,47 +109,47 @@ class Level1(Level):
 						self.enemies.add(met)
 						self.active_sprites.add(met)
 					#Up Slide Blade
-					elif level[h][i][j] == "^"
+					elif level[h][i][j] == "^":
 						blade = slideblade.SlideBlade(1,0,-1,j*32 + h*640,i*32)
 						self.enemies.add(blade)
 						self.active_sprites.add(blade)
 					#Down Slide Blade
-					elif level[h][i][j] == "^"
+					elif level[h][i][j] == "^":
 						blade = slideblade.SlideBlade(1,0,1,j*32 + h*640,i*32)
 						self.enemies.add(blade)
 						self.active_sprites.add(blade)
 					#Left Slide Blade
-					elif level[h][i][j] == "<"
+					elif level[h][i][j] == "<":
 						blade = slideblade.SlideBlade(0,1,-1,j*32 + h*640,i*32)
 						self.enemies.add(blade)
 						self.active_sprites.add(blade)
 					#Right Slide Blade
-					elif level[h][i][j] == "^"
+					elif level[h][i][j] == "^":
 						blade = slideblade.SlideBlade(0,1,1,j*32 + h*640,i*32)
 						self.enemies.add(blade)
 						self.active_sprites.add(blade)
 					#Left Diagonal Slide Blade
-					elif level[h][i][j] == "l"
+					elif level[h][i][j] == "l":
 						blade = slideblade.SlideBlade(1,1,-1,j*32 + h*640,i*32)
 						self.enemies.add(blade)
 						self.active_sprites.add(blade)
 					#Right Diagonal Slide Blade
-					elif level[h][i][j] == "l"
+					elif level[h][i][j] == "r":
 						blade = slideblade.SlideBlade(1,1,1,j*32 + h*640,i*32)
 						self.enemies.add(blade)
 						self.active_sprites.add(blade)
 					#Chaser Spawner
-					elif level[h][i][j] == "c"
+					elif level[h][i][j] == "c":
 						chase = chaserspawner.ChaserSpawner(j*32 + h*640,i*32)
 						self.enemies.add(chase)
 						self.active_sprites.add(chase)
 					#Big Eye
-					elif level[h][i][j] == "b"
+					elif level[h][i][j] == "b":
 						eye = bigeye.BigEye(j*32 + h*640,i*32-32)
 						self.enemies.add(eye)
 						self.active_sprites.add(eye)
 					#Sniper Joe
-					elif level[h][i][j] == "j"
+					elif level[h][i][j] == "j":
 						joe = sniperjoe.SniperJoe(j*32 + h*640,i*32-32)
 						self.enemies.add(joe)
 						self.active_sprites.add(joe)
