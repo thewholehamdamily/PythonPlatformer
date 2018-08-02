@@ -234,6 +234,12 @@ class Level1(Level):
 						joe = sniperjoe.SniperJoe(j*32 + h*640,i*32-32)
 						self.enemies.add(joe)
 						self.active_sprites.add(joe)
+						
+					#Boss
+					elif level[h][i][j] == "b":
+						boss = boss.Boss(j*32 + h*640, i*32-32)
+						self.enemies.add(boss)
+						self.active_sprites.add(boss)
 		'''
 		for platform in level:
 			plat = Platform(platform[0],platform[1])
