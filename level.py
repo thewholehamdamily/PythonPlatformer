@@ -3,6 +3,10 @@ includes classes Platform, Level, and Level1'''
 import pygame
 import player
 import metool
+import slideblade
+import chaserspawner
+import bigeye
+import sniperjoe
 
 BACKGROUND_COLOR = (3,3,3) #black
 PLATFORM_COLOR = (191,62,255) #purple
@@ -92,16 +96,63 @@ class Level1(Level):
 		for h in range(0,len(level)):
 			for i in range(0,15):
 				for j in range(0,20):
+					#Platforms
 					if level[h][i][j] == "p":
 						plat = Platform(32,32)
 						plat.rect.x = j*32 + h*640
 						plat.rect.y = i*32
 						plat.player = self.player
 						self.plats.add(plat)
+					#Metool
 					elif level[h][i][j] == "m":
 						met = metool.Metool(j*32 + h*640,i*32)
 						self.enemies.add(met)
 						self.active_sprites.add(met)
+					#Up Slide Blade
+					elif level[h][i][j] == "^"
+						blade = slideblade.SlideBlade(1,0,-1,j*32 + h*640,i*32)
+						self.enemies.add(blade)
+						self.active_sprites.add(blade)
+					#Down Slide Blade
+					elif level[h][i][j] == "^"
+						blade = slideblade.SlideBlade(1,0,1,j*32 + h*640,i*32)
+						self.enemies.add(blade)
+						self.active_sprites.add(blade)
+					#Left Slide Blade
+					elif level[h][i][j] == "<"
+						blade = slideblade.SlideBlade(0,1,-1,j*32 + h*640,i*32)
+						self.enemies.add(blade)
+						self.active_sprites.add(blade)
+					#Right Slide Blade
+					elif level[h][i][j] == "^"
+						blade = slideblade.SlideBlade(0,1,1,j*32 + h*640,i*32)
+						self.enemies.add(blade)
+						self.active_sprites.add(blade)
+					#Left Diagonal Slide Blade
+					elif level[h][i][j] == "l"
+						blade = slideblade.SlideBlade(1,1,-1,j*32 + h*640,i*32)
+						self.enemies.add(blade)
+						self.active_sprites.add(blade)
+					#Right Diagonal Slide Blade
+					elif level[h][i][j] == "l"
+						blade = slideblade.SlideBlade(1,1,1,j*32 + h*640,i*32)
+						self.enemies.add(blade)
+						self.active_sprites.add(blade)
+					#Chaser Spawner
+					elif level[h][i][j] == "c"
+						chase = chaserspawner.ChaserSpawner(j*32 + h*640,i*32)
+						self.enemies.add(chase)
+						self.active_sprites.add(chase)
+					#Big Eye
+					elif level[h][i][j] == "b"
+						eye = bigeye.BigEye(j*32 + h*640,i*32-32)
+						self.enemies.add(eye)
+						self.active_sprites.add(eye)
+					#Sniper Joe
+					elif level[h][i][j] == "j"
+						joe = sniperjoe.SniperJoe(j*32 + h*640,i*32-32)
+						self.enemies.add(joe)
+						self.active_sprites.add(joe)
 		'''
 		for platform in level:
 			plat = Platform(platform[0],platform[1])
