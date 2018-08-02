@@ -6,6 +6,8 @@ Defeat all the enemies to win.
 
 Libraries: Pygame
 
+Use "python3 main.py" to run
+
 Donovan worked on the boss and enemy design
 Redden created the level design kit, collisions, and enemy AI
 Cameron built the main game loop, hud, and player
