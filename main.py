@@ -74,16 +74,17 @@ while not close:
 			plr.invincible = True
 	for e in enemyBullets:
 		if plr.rect.colliderect(e.rect) and plr.invincible == False:
-			plr.health -= e.power
+			plr.health -= 1
 			plr.invincible = True
+			e.kill()
 			
 	#Bullets colliding w/ enemies
 	for b in bullets:
 		for e in currentL.enemies:
 			if b.rect.colliderect(e.rect) and e.vulnerable != 2:
 				if e.vulnerable == 1:
-					e.hurt();
-				b.kill();
+					e.hurt()
+				b.kill()
 
 	#Enemies attacking
 	for e in currentL.enemies:
